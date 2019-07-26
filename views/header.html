@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="shortcut icon" href="/img/开心果.png" type="image/x-icon">
+    <meta name="author" content="吴蓉">
+    <title>博客</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <nav>
+        <div class="container nav">
+            <ul class="nav-list">
+                {{if data}}
+                <li class="logo username">{{data.username}}的博客</li>
+                {{else}}
+                <li class="logo">BLOG</li>
+                {{/if}}
+                <li>
+                    <ul class="nav-right">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/file">存档</a></li>
+                        <li><a href="/label">标签</a></li>
+                        <li><a href="/publish">发布</a></li>
+                        {{if data}}
+                        <li><a class="username" href="/">{{data.username}}</a></li>
+                        <li><a href="/logout">退出登录</a></li>
+                        {{else}}
+                        <li><a href="/login">登录</a></li>
+                        <li><a href="/regist">注册</a></li>
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container content">
+        

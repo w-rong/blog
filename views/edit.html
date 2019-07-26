@@ -1,0 +1,54 @@
+{{include './header.html'}}
+<div class="edit-head">
+    {{each msgs msg i}}
+    <span>作者:</span>
+    <a href="/authorContent">{{msg.author}} </a>|
+    <span>日期:</span>
+    <span>{{msg.time}} </span>|
+    <span>标签:</span>
+    <a href='/label/{{msg.label[0]}}'>
+        {{msg.label[0]}}            
+        </a>
+        <a href='/label/{{msg.label[1]}}'>
+        {{msg.label[1]}}
+        </a>
+        <a href='/label/{{msg.label[2]}}'>
+        {{msg.label[2]}}
+        </a>
+
+    <div class="edit-content">  {{msg.content}}</div>
+    <div>
+        <span>阅读：{{msg.count}}次 | 评论：{{msg.reply.length}}次</span>
+    </div>
+    {{if data}}
+    {{if data.username == msg.author}}
+    <a href="/editMsg/{{msg._id}}">编辑</a> 
+    <a class="delete" href="/delete/{{msg._id}}">删除</a>
+    {{/if}}
+    {{/if}}
+    <hr>
+    <div class="reply">
+        <h3>评论:</h3>
+        <div class="reply-content">
+            {{each msg.reply data i}}
+            <span>{{data.author}}</span>
+            <span>回复于：{{data.time}}</span>
+            <div>{{data.reply}}</div>
+            {{/each}}
+        </div>
+        {{if data}}
+        <form action="/reply" method="post">
+            <textarea name="content" required></textarea><br>
+            <input type="text" name="_id" value="{{msg._id}}" hidden>
+            <button type="submit">留言</button>
+        </form>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{{include './footer.html'}}

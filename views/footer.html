@@ -1,0 +1,11 @@
+</div>
+<script>
+    var del = document.querySelector('a.delete');
+    del.onclick = function(ev){
+        if (!confirm('是否删除')) {
+            ev.preventDefault();
+        } 
+    }
+</script>
+</body>
+</html>

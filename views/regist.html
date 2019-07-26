@@ -1,0 +1,45 @@
+{{include './header.html'}}
+<br>
+<div class="register-all">
+<form action="/regist" method="post">
+    <label class="register-label">
+        用户名&ensp;&emsp;<input  required type="text" name="username" onkeyup="this.value=this.value.replace(/\s+/g,'')">
+
+    </label><br><br>
+    <label  class="register-label">
+        邮箱&ensp;&emsp;&emsp;<input  required type="text" name="mailbox" id="">
+    </label><br><br>
+    <label class="register-label">
+        密码&emsp;&emsp;&ensp;<input  required type="password" name="password" id="">
+    </label><br><br>
+    <label class="register-label">
+        确认密码&ensp;<input  required type="password" name="repassword" id="">
+    </label><br><br>
+    <label class="register-label">
+        年龄&emsp;&emsp;&ensp;<input  required type="text" name="age" id="">
+    </label><br><br>
+    <label class="register-sex">
+        性别&emsp;&emsp;
+        <input  checked type="radio" name="sex" value="男">男
+        <input   type="radio" name="sex" value="女">女
+    </label><br><br>
+    <label class="register-label">
+        专业&emsp;&emsp;&ensp;
+        <select name="major" >
+            <option value="HTML">HTML</option>
+            <option value="JAVA">JAVA</option>
+            <option value="C语言">C语言</option>
+            <option value="C++">C++</option>
+        </select>
+    </label>
+    <label class="register-sex"><br><br>
+        爱好&emsp;&emsp;&ensp;
+        <input type="checkbox" name="hobby" value="唱" checked>唱
+        <input type="checkbox" name="hobby" value="跳">跳
+        <input type="checkbox" name="hobby" value="rap">rap
+        <input type="checkbox" name="hobby" value="打篮球">打篮球
+    </label><br><br>
+    <button type="submit">注册</button>{{error}}
+</form>
+</div>
+{{include './footer.html'}}

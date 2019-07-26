@@ -1,0 +1,23 @@
+{{include './header.html'}}
+
+<div class="index-right publish-page no-publish">
+        <br>
+        <h2>编辑：</h2>
+        <form action="/editMsgs/{{msgs._id}}" method="post">
+        <label>
+            标题：<input type="text" name="title" id="" value="{{msgs.title}}"><br>
+        </label>
+        <label>
+            标签：<input type="text" name="label" id=""  value="{{msgs.label[0]}}"><input type="text" name="label" id=""  value="{{msgs.label[1]}}"><input type="text" name="label" id=""  value="{{msgs.label[2]}}">
+        </label>
+        <br><br>
+        <label>
+            内容：<br><textarea name="content" id="" cols="30" rows="10" required>{{msgs.content}}</textarea>
+        </label>
+        <br>
+        <br>
+        <button type="submit">发布</button>
+        </form>
+
+    </div>
+{{include './footer.html'}}

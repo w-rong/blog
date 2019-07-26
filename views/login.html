@@ -1,0 +1,12 @@
+{{include './header.html'}}
+    <form action="/login" method="post" class="login">
+        <label>
+            用户名&ensp;<input type="text" name="username" id="" required>
+        </label><br><br>
+        <label>
+            密码&emsp;&ensp;<input type="password" name="password" id="" required>
+        </label><br><br>
+        <button type="submit">登录</button>
+        <a href="/regist">注册</a>{{error}}
+    </form>
+{{include './footer.html'}}

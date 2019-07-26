@@ -1,0 +1,72 @@
+{{include './header.html'}}
+<div class="index">
+    <div class="all-left">
+        {{if data}}
+        <div class="about">
+            <p>关于</p>
+            <p class="about-content">
+                <img src="/img/头像.jpg" alt="">
+                <span>姓名:
+                    {{data.username}}<br>年龄:{{data.age}}
+                </span>
+            </p>
+            <p>所学专业是{{data.major}},我的电子邮箱是{{data.mailbox}},喜欢{{data.hobby.toString()}}</p>
+
+        </div>
+        {{/if}}
+        <div class="search">
+            <form action="/search" method="post">
+                <label>
+                    <input type="text" name="search" placeholder="请输入搜索的内容" required>
+                    <button type="submit">搜索</button>
+                </label>
+            </form>
+        </div>
+        <div class="classify">
+            <p>分类</p>
+            <p>文章 ( {{msgs.length}} )</p>
+            <p>相册 ( 0 )</p>
+        </div>
+        <div class="publish">
+            <p>存档</p>
+            {{each msgs msg i}}
+            <p><img src="/img/点点.png" alt=""> <a href="/edit/{{msg._id}}">{{msg.title}}</a></p>
+            {{/each}}
+        </div>
+        <div class="link">
+            <p>友情链接</p>
+            {{if data}}
+            <p><a href="/">{{data.username}}的个人博客</a></p>
+            {{/if}}
+        </div>
+        <div class="link">
+            <p>关注我</p>
+            <img src="/img/二维码.png" alt="">
+        </div>
+    </div>
+    {{if data}}
+    <div class="index-right publish-page">
+        <br>
+        <form action="/publish" method="post">
+            <label>
+                标题：<input type="text" name="title" id=""><br>
+            </label>
+            <label>
+                标签：<input type="text" name="label" id=""><input type="text" name="label" id=""><input type="text"
+                    name="label" id="">
+            </label>
+            <br><br>
+            <label>
+                内容：<br><textarea name="content" id="" cols="30" rows="10"></textarea>
+            </label>
+            <br>
+            <br>
+            <button type="submit">发布</button>
+        </form>
+    </div>
+    {{else}}
+    <p class="publish-p">请先 <a href="/login">登录</a></p>
+    {{/if}}
+
+</div>
+{{ include './footer.html'}}
